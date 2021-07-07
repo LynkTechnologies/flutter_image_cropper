@@ -206,6 +206,9 @@
         data = UIImageJPEGRepresentation(image, _compressQuality);
         tmpFile = [NSString stringWithFormat:@"image_cropper_%@.jpg", guid];
     }
+
+    NSString *tmpDirectory = NSTemporaryDirectory();
+    NSString *tmpPath = [tmpDirectory stringByAppendingPathComponent:tmpFile];
     
     if (_result) {
         if ([[NSFileManager defaultManager] createFileAtPath:tmpPath contents:data attributes:nil]) {
